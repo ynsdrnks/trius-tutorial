@@ -1,0 +1,46 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Trius Application</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+
+
+        <div class="col-md-6" style="border:2px solid #ddd">
+            <div class="alert alert-danger" role="alert" th:if="${param.error}">
+                Kullanıcı Adı veya Şifre yanlış.
+            </div>
+            <form th:action="@{/login}" method="post">
+                <label>Email </label>
+                <input type="email" name="username" class="form-control" placeholder="Email giriniz."/>
+                <label>Şifreniz</label>
+                <input type="password" id="password" value="FakePSW" name="password" class="form-control" placeholder="Şifre giriniz."/>
+                <input type="checkbox" onclick="myFunction()">Show Password
+                <br/>
+                <button class="btn btn-primary text-center form-control" type="submit">Giriş Yap</button>
+                <br/>
+                <br/>
+                <div class="margin-top20 text-center"><a th:href="@{/register}">Üye Olma Sayfasına Git</a>
+                    <hr>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function myFunction() {
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}</script>
+</body>
+</html>
